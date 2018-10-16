@@ -1,18 +1,25 @@
 <?php
 
-class ConeccionBD {
+class coneccionbd {
 
     protected $coneccion = null;
-    private $serverName = "laboapc.ddns.net\sqlexpress";
+    private $serverName = "laboapc.ddns.net\sqlexpress, 8956";
+    
 
-    public function conectar(): bool {
+    public function conectar() {
         try {
-            $this->coneccion = new PDO('sqlsrv:server=$serverName;port=8956;dbname=APC', 'pcbrujo','OIU8932hoi.=');
+            
+            print_r(PDO::getAvailableDrivers());
+            echo "AQUI SIM";
+            $this->coneccion = new PDO("sqlsrv:Server=laboapc.ddns.net\sqlexpress, 8956;Database=APC", "pcbrujo", "OIU8932hoi.=");
             return TRUE;
         } catch (PDOException $exc) {
             if ((isset($this->coneccion)) && ($this->coneccion->inTransaction())) {
                 $this->coneccion->rollBack();
             }
+            
+            print $exc;
+            print "No se conecta a la base tarado!!";
             return FALSE;
         }
     }
@@ -23,4 +30,7 @@ class ConeccionBD {
 
 }
 
+
+$c=new coneccionbd();
+$c->conectar();
 ?>

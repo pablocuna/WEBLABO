@@ -1,16 +1,17 @@
 <?php
 
-include_once 'ConeccionBD.php';
+include_once 'Coneccion_BD.php';
 
-class consultas extends ConeccionBD {
+class consultas extends coneccionbd {
 
 
 
-function consultarPersona() {
+function consultarAgenda() {
 
         if ($this->conectar() == TRUE) {
             $listRetorno = null;
-            $consultaSQL = $this->coneccion->prepare("select * from Personas");
+            $consultaSQL = $this->coneccion->prepare(
+                    "select * from AgPacientesAgendados");
             if ($consultaSQL->execute() == TRUE) {
                 $listRetorno = $consultaSQL->fetchAll();
             }
@@ -29,7 +30,7 @@ function consultarPersona() {
     <body>
     <?php
         $consulta=new consultas();
-        print $consulta->consultarPersona();
+        print_r($consulta->consultarAgenda());
     
     ?>
         
