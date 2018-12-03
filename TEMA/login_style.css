@@ -1,0 +1,41 @@
+
+
+#loginform
+{
+ width:400px;
+ height:250px;
+ margin:150px auto;
+ background-color:window;
+ border-radius:3px;
+ box-shadow:0px 0px 10px 0px #424242;
+ padding:10px;
+ box-sizing:border-box;
+ font-family:helvetica;
+ visibility:hidden;
+ display:none;
+ text-align: center;
+}
+
+#loginform #tabla1 {
+    width: 100%;
+    height: 20%;
+    margin: 0 auto;
+    align-items: center;
+}
+
+#loginform #tabla2 {
+    width: 100%;
+    height: 70%;
+    margin: 0 auto;
+    align-items: center;
+}
+#loginform #tabla1 #close_login{
+    position:absolute;
+    text-align: right;
+    border: 0;
+}
+
+#loginform #tabla2 p{
+    color:white;
+    
+}
